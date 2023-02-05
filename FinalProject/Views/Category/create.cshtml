@@ -1,0 +1,32 @@
+﻿@model Category
+
+@{
+    List<Category> categories = ViewBag.CategoryList;
+}
+
+<div class="card">
+
+    <div class="card-body">
+        <h4 class="card-title">Create New Category</h4>
+        <form method="post" class="form-inline align-items-center text-center">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control m-2 mr-sm-2">
+            <div class="form-check mx-sm-2">
+                <label asp-for="isMain" class="form-check-label ml-3" for="isMain">
+                    <input asp-for="isMain" class="form-check-input m-2 d-inline-block"> This Category isMain?
+                </label>
+            </div>
+            <select asp-for="CategoryId" class="form-control">
+                <option value="">Choose Category</option>
+                @foreach (Category category in ViewBag.CategoryList)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+                      </select>
+            <button type="submit" class="btn btn-primary m-2">Submit</button>
+            <a asp-action="index" asp-controller="category" class="btn btn-primary m-2">Cancel</a>
+        </form>
+    </div>
+</div>
+
+

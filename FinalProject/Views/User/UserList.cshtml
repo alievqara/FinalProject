@@ -1,0 +1,34 @@
+﻿@using FinalProject.ViewModels.User;
+@model List<User>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">System Users List</h4>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (User item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name @item.Surname @item.FatherName</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Email</td>
+                            <td>
+                                <label class="badge badge-danger">Update User</label>
+                                <label class="badge badge-danger">Delete User</label>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

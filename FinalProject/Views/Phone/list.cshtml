@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Phone>
+
+@{
+    ViewData["Title"] = "Category List";
+    int counter = 1;
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="d-flex align-items-center justify-content-between m-2">
+                        <h6 class="mb-4">Category List Table</h6>
+                        <a class="btn btn-outline-light" asp-action="Create">Create New</a>
+                    </div>
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Phone Brand Name</th>
+                                <th scope="col">Phone  Model Name</th>
+                                <th scope="col">Phone  Ram & Storage</th>
+                                <th scope="col">Phone  Imei</th>
+                                <th scope="col">Phone  Detail</th>
+                                <th scope="col">Created Date</th>
+                                <th scope="col">Creator Name</th>
+                                <th scope="col">Updated Date</th>
+                                <th scope="col">Updator Name</th>
+                                <th scope="col">Settrings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Phone phone in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@(counter++)</th>
+                                    <td>@phone.Brand_Name</td>
+                                    <td>@phone.Model_Name</td>
+                                    <td>@phone.Ram / @phone.Storage</td>
+                                    <td>@phone.Imei</td>
+                                    <td>@phone.Detail</td>
+                                    <td>@phone.CreatedTime.ToString()</td>
+                                    <td>@phone.CreatorName</td>
+                                    <td>@phone.EditedTime.ToString()</td>
+                                    <td>@phone.EditorName</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-warning" asp-action="Update" asp-route-id="@phone.Id">Update</a>
+                                        <a class="btn btn-sm btn-outline-primary" asp-action="Delete" asp-route-id="@phone.Id">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

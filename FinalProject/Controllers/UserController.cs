@@ -1,6 +1,7 @@
 ﻿using EduHome.Extention;
 using FinalProject.DAL;
 using FinalProject.Entities;
+using FinalProject.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -106,18 +107,46 @@ namespace FinalProject.Controllers
         }
 
 
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> ChangePassword()
+        {
+            User user = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.User = user;
+
+            return View();
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePass pass,string id)
+        {
+
+            ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var updatedUser = await _userManager.FindByNameAsync(id);
+
+            if (!ModelState.IsValid) return View();
+
+            pass.Password.GetHashCode();
+
+            updatedUser.PasswordHash = pass.Password;
+
+            var result = await _userManager.UpdateAsync(updatedUser);
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+            return View(pass);
+        }
+
+
+
         #endregion
-
-
-        //public async Task<IActionResult> Delete(string id)
-        //{
-        //    IdentityRole role = await _roleManager.FindByIdAsync(id);
-        //    if (role != null)
-        //    {
-        //        IdentityResult result = await _roleManager.DeleteAsync(role);
-        //    }
-        //    return RedirectToAction("userlist");
-        //}
 
     }
 }

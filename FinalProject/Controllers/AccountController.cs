@@ -2,6 +2,7 @@
 using FinalProject.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ViewModels.Account;
 
 namespace FinalProject.Controllers
@@ -11,7 +12,7 @@ namespace FinalProject.Controllers
 
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-      
+
 
 
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
@@ -71,7 +72,11 @@ namespace FinalProject.Controllers
         #endregion
 
 
+
+
+
     }
+
 
 
 

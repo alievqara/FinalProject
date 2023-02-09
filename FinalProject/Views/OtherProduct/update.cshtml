@@ -1,0 +1,87 @@
+﻿@model OtherProduct
+
+@{
+    List<Category> categories = ViewBag.CategoryList;
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create New Phone Product</h4>
+            <form method="post" class="form-sample">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Brand_Name" class="col-sm-3 col-form-label">Brend Name</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Brand_Name" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Model_Name" class="col-sm-3 col-form-label">Model Name</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Model_Name" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Detail" class="col-sm-3 col-form-label">Detail Info</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Detail" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CategoryID" class="col-sm-3 col-form-label">Choose Category</label>
+                            <div class="col-sm-9">
+                                <select asp-for="CategoryID" class="form-control">
+                                    <option value="">Choose Category</option>
+                                    @foreach (Category category in ViewBag.CategoryList)
+                                    {
+                                        <option value="@category.Id">@category.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Barcode" class="col-sm-3 col-form-label">Barcode</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Barcode" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Yararsiz" class="col-sm-3 col-form-label">Defective?</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Yararsiz" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Stock_Sale" class="col-sm-3 col-form-label">Stock or Sale</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Stock_Sale" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg font-weight-medium auth-form-btn">Create</button>
+                <a class="btn btn-primary btn-lg font-weight-medium auth-form-btn" asp-action="list" asp-controller="computer">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -65,7 +65,7 @@ namespace FinalProject.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("FinalProject.Entities.Kassa", b =>
@@ -102,7 +102,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Kassa");
+                    b.ToTable("Kassa", (string)null);
                 });
 
             modelBuilder.Entity("FinalProject.Entities.Musteri", b =>
@@ -196,7 +196,7 @@ namespace FinalProject.Migrations
 
                     b.HasIndex("SaticiId");
 
-                    b.ToTable("Musteriler");
+                    b.ToTable("Musteriler", (string)null);
                 });
 
             modelBuilder.Entity("FinalProject.Entities.Product", b =>
@@ -263,7 +263,7 @@ namespace FinalProject.Migrations
 
                     b.HasIndex("MusteriId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Product");
                 });
@@ -307,7 +307,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SettingData");
+                    b.ToTable("SettingData", (string)null);
                 });
 
             modelBuilder.Entity("FinalProject.Entities.User", b =>
@@ -536,6 +536,14 @@ namespace FinalProject.Migrations
             modelBuilder.Entity("FinalProject.Entities.Computer", b =>
                 {
                     b.HasBaseType("FinalProject.Entities.Product");
+
+                    b.Property<string>("CPU")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GPU")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Ram")
                         .HasColumnType("int")

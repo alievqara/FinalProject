@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Product List";
+    int counter = 1;
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="d-flex align-items-center justify-content-between m-2">
+                        <h6 class="mb-4">Product Stock List Table</h6>
+                    </div>
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Info</th>
+                                <th scope="col">Settrings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Product product in Model)
+                            {
+                                    <tr>
+                                        <th scope="row">@(counter++)</th>
+                                        <td>@product.Brand_Name @product.Model_Name  @product.Price Azn</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-outline-warning" asp-controller="product" asp-action="detail" asp-route-id="@product.Id">Detail</a>
+                                        @if (User.IsInRole("Anbardar") || User.IsInRole("SuperUser"))
+                                        {
+                                                    <a class="btn btn-sm btn-outline-warning" asp-action="Update" asp-route-id="@product.Id">Update</a>
+                                                    <a class="btn btn-sm btn-outline-primary" asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+
+                                        }
+                                        </td>
+                                    </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

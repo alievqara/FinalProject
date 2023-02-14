@@ -1,4 +1,5 @@
 ﻿using FinalProject.Entities.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinalProject.Entities
 {
@@ -12,6 +13,9 @@ namespace FinalProject.Entities
         public bool  Yararsiz { get; set; }
         public int CategoryID { get; set; }
         public Category? Category { get; set; }
+        public bool AddSaleBasket { get; set; }
+        public string? UserSale { get; set; }
+
 
     }
 }

@@ -1,0 +1,64 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Sale";
+    int counter = 1;
+    decimal price = 0;
+
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sale Product</h4>
+                <div class="d-flex align-items-center justify-content-between">
+                    <a class="btn btn-outline-light" asp-action="addProductSale">Add Product</a>
+                    <div>
+                        <a class="btn btn-outline-light" asp-action="clear">Clear</a>
+                        <a class="btn btn-outline-light" asp-action="cancel">Cancel</a>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">№</th>
+                                    <th scope="col">Info</th>
+                                    <th scope="col">Settrings</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Product product in Model)
+                                {
+                                    price += product.Price;
+                                    <tr>
+                                        <th scope="row">@(counter++)</th>
+                                        <td>@product.Brand_Name @product.Model_Name  @product.Price Azn</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-outline-warning" asp-controller="product" asp-action="detail" asp-route-id="@product.Id">Detail</a>
+                                            <a class="btn btn-sm btn-outline-primary" asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <th>Product Count: @Model.Count()</th>
+                                    <th>Total Price: @price</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <a class="btn btn-outline-light" asp-action="index" asp-controller="dashboard">Back</a>
+                    <div>
+                        <a class="btn btn-outline-light" asp-action="clear">Cash Sale</a>
+                        <a class="btn btn-outline-light" asp-action="cancel">Sale On Credit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

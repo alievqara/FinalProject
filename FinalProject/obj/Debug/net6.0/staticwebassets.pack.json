@@ -833,6 +833,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\cropper.js"
     },
     {
+      "Id": "D:\\Lessons\\FinalProject\\FinalProject\\wwwroot\\assets\\js\\custom.js",
+      "PackagePath": "staticwebassets\\assets\\js\\custom.js"
+    },
+    {
       "Id": "D:\\Lessons\\FinalProject\\FinalProject\\wwwroot\\assets\\js\\dashboard.js",
       "PackagePath": "staticwebassets\\assets\\js\\dashboard.js"
     },

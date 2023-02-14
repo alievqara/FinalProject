@@ -65,7 +65,7 @@ namespace FinalProject.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("FinalProject.Entities.Kassa", b =>
@@ -102,7 +102,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Kassa", (string)null);
+                    b.ToTable("Kassa");
                 });
 
             modelBuilder.Entity("FinalProject.Entities.Musteri", b =>
@@ -196,7 +196,7 @@ namespace FinalProject.Migrations
 
                     b.HasIndex("SaticiId");
 
-                    b.ToTable("Musteriler", (string)null);
+                    b.ToTable("Musteriler");
                 });
 
             modelBuilder.Entity("FinalProject.Entities.Product", b =>
@@ -206,6 +206,9 @@ namespace FinalProject.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("AddSaleBasket")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Brand_Name")
                         .IsRequired()
@@ -256,6 +259,9 @@ namespace FinalProject.Migrations
                     b.Property<bool>("Stock_Sale")
                         .HasColumnType("bit");
 
+                    b.Property<string>("UserSale")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("Yararsiz")
                         .HasColumnType("bit");
 
@@ -263,7 +269,7 @@ namespace FinalProject.Migrations
 
                     b.HasIndex("MusteriId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Product");
                 });
@@ -307,7 +313,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SettingData", (string)null);
+                    b.ToTable("SettingData");
                 });
 
             modelBuilder.Entity("FinalProject.Entities.User", b =>

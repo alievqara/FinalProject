@@ -21,7 +21,7 @@ namespace FinalProject.Controllers
         {
             ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            var product = await _appDBC.Products.Where(p=>!p.IsDeleted).OrderByDescending(x=>x.Id).ToListAsync();
+            var product = await _appDBC.Products.Where(p => !p.IsDeleted).OrderByDescending(x => x.Id).ToListAsync();
 
             return View(product);
         }
@@ -105,6 +105,15 @@ namespace FinalProject.Controllers
 
             return RedirectToAction("index");
         }
+
+        #endregion
+
+
+
+
+        #region Sale 
+
+
 
         #endregion
     }

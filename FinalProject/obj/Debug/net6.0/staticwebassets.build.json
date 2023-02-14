@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xp3a+aF6sT7eQHHtquh8/TqLCEyWdCuTzYaz09/njqs=",
+  "Hash": "Ibj7CwEVsQcudAQe6cRr3eIoGZSH552Y0pdiW9jKqSU=",
   "Source": "FinalProject",
   "BasePath": "_content/FinalProject",
   "Mode": "Default",
@@ -3568,6 +3568,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\cropper.js"
+    },
+    {
+      "Identity": "D:\\Lessons\\FinalProject\\FinalProject\\wwwroot\\assets\\js\\custom.js",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Lessons\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "assets/js/custom.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\custom.js"
     },
     {
       "Identity": "D:\\Lessons\\FinalProject\\FinalProject\\wwwroot\\assets\\js\\dashboard.js",

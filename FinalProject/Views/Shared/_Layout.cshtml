@@ -68,7 +68,22 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <span class="nav-link" aria-expanded="false" aria-controls="ui-basic">
+                    <span class="nav-link" >
+                        <span class="menu-icon">
+                            <i class="mdi mdi-sale"></i>
+                        </span>
+                        <span class="menu-title">Sale</span>
+                    </span>
+                    <div id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="index">Sale Product</a></li>
+                            <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="">My Sale List Day</a></li>
+                            <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="">My Sale List Mount</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item menu-items">
+                    <span class="nav-link" >
                         <span class="menu-icon">
                             <i class="mdi mdi-contacts"></i>
                         </span>
@@ -82,7 +97,7 @@
                     </div>
                 </li>
                 <li class="nav-item menu-items">
-                    <span class="nav-link" aria-expanded="false" aria-controls="ui-basic">
+                    <span class="nav-link">
                         <span class="menu-icon">
                             <i class="mdi mdi-cellphone-link"></i>
                         </span>
@@ -143,9 +158,11 @@
                         </span>
                         <span class="menu-title">Other Product Manager</span>
                     </span>
-                    <div id="ui-basic">
+                    <div>
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" asp-controller="otherproduct" asp-action="index">Other Product List</a></li>
+                            <li class="nav-item"> 
+                                <a class="nav-link" asp-controller="otherproduct" asp-action="index">Other Product List</a>
+                                </li>
                         </ul>
                     </div>
                 </li>

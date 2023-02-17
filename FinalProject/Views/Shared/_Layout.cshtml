@@ -71,6 +71,12 @@
                         <div id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="sale">Sale Product</a></li>
+    @*                            @if (User.IsInRole("Menecer") || User.IsInRole("SuperUser") || User.IsInRole("Idareci"))
+                                {
+                                    <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="CancelSaleSearch">Cancel Sale Product</a></li>
+                                    <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="paycredit">Pay off a loan</a></li>
+
+                                }*@
                                 <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="allsalelist">All Sale Product List Today</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="salelistmounth">All Sale List Mount</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="mysalelistday">My Sale List Day</a></li>

@@ -1,0 +1,86 @@
+﻿@model Musteri
+
+
+@{
+    List<Musteri> musteriler = ViewBag.CancelList;
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create New Phone Product</h4>
+            <form method="post" class="form-sample">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Name" class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Name"  class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Surname" class="col-sm-3 col-form-label">Surname</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Surname" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="FatherName" class="col-sm-3 col-form-label">Fathername</label>
+                            <div class="col-sm-9">
+                                <input asp-for="FatherName" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg font-weight-medium auth-form-btn">Search</button>
+                <a class="btn btn-primary btn-lg font-weight-medium auth-form-btn" asp-action="sale" asp-controller="salebasket">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row ">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th> Client Name </th>
+                                    <th> Sales Person Name </th>
+                                    <th> Product Cost </th>
+                                    <th> Products Count </th>
+                                    <th> Date Sale</th>
+                                    <th> Settings </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Musteri item in ViewBag.CancelList)
+                                {
+                                    <tr>
+                                        <td>@item.Name @item.Surname @item.FatherName</td>
+                                        <td>@item.Satici</td>
+                                        <td>@item.UmumiDeyer_Borc.ToString()</td>
+                                        <td>@item.Products.Count()</td>
+                                        <td>@item.CreatedTime</td>
+                                        <td>
+                                            <div class="badge badge-outline-success">Cancel Sale</div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

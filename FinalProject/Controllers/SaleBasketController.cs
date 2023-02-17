@@ -31,6 +31,35 @@ namespace FinalProject.Controllers
 
             return View(BasketList);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> CancelSaleSearch()
+        {
+            ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CancelSaleSearch(Musteri? client)
+        {
+            ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            List<Musteri> musteriler = await _appDBC.Musteriler.Where(m => !m.IsDeleted && m.Name.ToLower() == client.Name.ToLower() && m.Surname.ToLower() == client.Surname.ToLower() && m.FatherName.ToLower() == client.FatherName.ToLower()).ToListAsync();
+
+
+            if (musteriler == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.CancelList = musteriler;
+
+            return View();
+        }
+
+
         [Authorize(Roles = "SuperUser,Satici,Direktor,Menecer")]
 
         public async Task<IActionResult> Allsalelist()

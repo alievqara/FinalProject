@@ -1,11 +1,15 @@
 ﻿using FinalProject.DAL;
 using FinalProject.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace FinalProject.Controllers
 {
+    [Authorize(Roles = "SuperUser,Anbardar")]
+
     public class OtherProductController : Controller
     {
         private readonly AppDBC _appDBC;

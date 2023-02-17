@@ -88,6 +88,17 @@
                     </div>
 
                 </div>
+                                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Price" class="col-sm-3 col-form-label">Color</label>
+                            <div class="col-sm-9">
+                                <input asp-for ="Price" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <button type="submit" class="btn btn-primary btn-lg font-weight-medium auth-form-btn">Create</button>
                 <a class="btn btn-primary btn-lg font-weight-medium auth-form-btn" asp-action="list" asp-controller="phone">Cancel</a>
             </form>

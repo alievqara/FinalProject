@@ -12,7 +12,6 @@ using ViewModels.Account;
 namespace FinalProject.Controllers
 {
     [Authorize]
-    [Authorize(Roles ="SuperUser")]
     public class UserController : Controller
     {
 
@@ -48,7 +47,7 @@ namespace FinalProject.Controllers
             return View();
         }
 
-        [Authorize(Roles = "SuperUser,Hr")]
+        [Authorize(Roles = "SuperUser,Hr,Director")]
         [HttpPost]
         public async Task<IActionResult> CreateNewUser(AccountCreateVM model)
         {
@@ -85,7 +84,7 @@ namespace FinalProject.Controllers
                 ModelState.AddModelError(string.Empty, errorMessage: "Vezife Duzgun Secilmemisdir");
             }
 
-            return RedirectToAction("index", "dashboard");
+            return RedirectToAction("userlist", "user");
 
         }
 

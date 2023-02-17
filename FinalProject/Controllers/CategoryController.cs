@@ -1,11 +1,13 @@
 ﻿using FinalProject.DAL;
 using FinalProject.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
+    [Authorize(Roles ="SuperUser,Anbardar")]
     public class CategoryController : Controller
     {
 

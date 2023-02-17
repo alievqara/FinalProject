@@ -1,8 +1,10 @@
 ﻿using FinalProject.DAL;
 using FinalProject.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace FinalProject.Controllers
 {
@@ -16,6 +18,7 @@ namespace FinalProject.Controllers
             _appDBC = appDBC;
             _userManager = userManager;
         }
+        [Authorize(Roles = "SuperUser,Satici,Direktor,Menecer")]
 
         public async Task<IActionResult> Index()
         {
@@ -25,6 +28,7 @@ namespace FinalProject.Controllers
 
             return View(product);
         }
+        [Authorize(Roles = "SuperUser,Anbardar")]
 
         public async Task<IActionResult> ListSale()
         {
@@ -34,6 +38,7 @@ namespace FinalProject.Controllers
 
             return View(product);
         }
+        [Authorize(Roles = "SuperUser,Satici,Direktor,Menecer,Anbardar")]
 
         public async Task<IActionResult> ListStock()
         {
@@ -43,6 +48,7 @@ namespace FinalProject.Controllers
 
             return View(product);
         }
+        [Authorize(Roles = "SuperUser,Direktor,Anbardar")]
 
         public async Task<IActionResult> ListDeffect()
         {
@@ -54,6 +60,8 @@ namespace FinalProject.Controllers
         }
 
 
+
+        [Authorize(Roles = "SuperUser,Satici,Direktor,Menecer,Anbardar")]
         public async Task<IActionResult> Detail(int id)
         {
             ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -64,15 +72,50 @@ namespace FinalProject.Controllers
                 return View();
             }
 
-            var product = await _appDBC.Products.FirstOrDefaultAsync(p => p.IsDeleted && p.Id == id);
 
-            if (product == null)
+
+            if ((await _appDBC.Phones.FirstOrDefaultAsync(p => p.Id == id)) != null)
             {
-                return NotFound();
+                return RedirectToAction("DetailPhone", "Product", new { id = id });
+            }
+
+            if ((await _appDBC.Computers.FirstOrDefaultAsync(p => p.Id == id)) != null)
+            {
+                return RedirectToAction("DetailComp", "Product", new { id = id });
+            }
+
+            if ((await _appDBC.OtherProducts.FirstOrDefaultAsync(p => p.Id == id)) != null)
+            {
+                return RedirectToAction("DetailOther", "Product", new { id = id });
             }
 
 
-            return View(product);
+            return View();
+        }
+
+
+        public async Task<IActionResult> DetailPhone(int id)
+        {
+            ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var phone13 = await _appDBC.Phones.FirstOrDefaultAsync(p => p.Id == id);
+            return View(phone13);
+        }
+
+        public async Task<IActionResult> DetailComp(int id)
+        {
+            ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var computer = await _appDBC.Computers.FirstOrDefaultAsync(p => p.Id == id);
+            return View(computer);
+        }
+
+        public async Task<IActionResult> DetailOther(int id)
+        {
+            ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var other = await _appDBC.OtherProducts.FirstOrDefaultAsync(p => p.Id == id);
+            return View(other);
         }
 
         #region Delete

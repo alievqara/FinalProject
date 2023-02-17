@@ -34,16 +34,6 @@
                         </div>
                         <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
                         <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
-                            <a asp-action="settingacc" asp-controller="account" asp-route-id="@User.Identity.Name" class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <div class="preview-icon bg-dark rounded-circle">
-                                        <i class="mdi mdi-settings text-primary"></i>
-                                    </div>
-                                </div>
-                                <div class="preview-item-content">
-                                    <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
-                                </div>
-                            </a>
                             <div class="dropdown-divider"></div>
                             <a asp-controller="user" asp-action="changepassword" asp-route-id="@User.Identity.Name.ToString()" class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
@@ -59,6 +49,7 @@
                         </div>
                     </div>
                 </li>
+
                 <li class="nav-item  ">
                     <a class="nav-link menu-items" asp-action="index" asp-controller="dashboard">
                         <span class="menu-icon">
@@ -67,105 +58,127 @@
                         <span class="menu-title">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-item menu-items">
-                    <span class="nav-link" >
-                        <span class="menu-icon">
-                            <i class="mdi mdi-sale"></i>
+
+                @if (User.IsInRole("Satici") || User.IsInRole("Direktor") || User.IsInRole("SuperUser") || User.IsInRole("Idareci"))
+                {
+                    <li class="nav-item menu-items">
+                        <span class="nav-link">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-sale"></i>
+                            </span>
+                            <span class="menu-title">Sale</span>
                         </span>
-                        <span class="menu-title">Sale</span>
-                    </span>
-                    <div id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="index">Sale Product</a></li>
-                            <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="">My Sale List Day</a></li>
-                            <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="">My Sale List Mount</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item menu-items">
-                    <span class="nav-link" >
-                        <span class="menu-icon">
-                            <i class="mdi mdi-contacts"></i>
+                        <div id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="sale">Sale Product</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="allsalelist">All Sale Product List Today</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="salelistmounth">All Sale List Mount</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="mysalelistday">My Sale List Day</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="mysalelistmount">My Sale List Mount</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="SaleBasket" asp-action="kreditodenisi">My Sale List Mount</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                }
+                @if (User.IsInRole("Hr") || User.IsInRole("Direktor") || User.IsInRole("SuperUser"))
+                {
+                    <li class="nav-item menu-items">
+                        <span class="nav-link">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-contacts"></i>
+                            </span>
+                            <span class="menu-title">User Manager</span>
                         </span>
-                        <span class="menu-title">User Manager</span>
-                    </span>
-                    <div id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" asp-controller="user" asp-action="userlist">User List</a></li>
-                            <li class="nav-item"> <a class="nav-link" asp-controller="user" asp-action="createnewuser">Create New User</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item menu-items">
-                    <span class="nav-link">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-cellphone-link"></i>
+                        <div id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-controller="user" asp-action="userlist">User List</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="user" asp-action="createnewuser">Create New User</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                }
+                @if (User.IsInRole("Satici") || User.IsInRole("Direktor") || User.IsInRole("SuperUser") || User.IsInRole("Idareci"))
+
+                {
+                    <li class="nav-item menu-items">
+                        <span class="nav-link">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-cellphone-link"></i>
+                            </span>
+                            <span class="menu-title">Product Manager</span>
                         </span>
-                        <span class="menu-title">Product Manager</span>
-                    </span>
-                    <div id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="index">All Product List</a></li>
-                            <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="listsale">All Sale Product List</a></li>
-                            <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="liststock">All Stock Product List</a></li>
-                            <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="listdeffect">All Deffect Product List</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item menu-items">
-                    <span class="nav-link">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-certificate"></i>
+                        <div id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="liststock">All Stock Product List</a></li>
+                                @if (User.IsInRole("Anbardar") || User.IsInRole("SuperUser"))
+                                {
+                                    <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="listsale">All Sale Product List</a></li>
+                                    <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="listdeffect">All Deffect Product List</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </li>
+
+                }
+                @if (User.IsInRole("Anbardar") || User.IsInRole("SuperUser"))
+                {
+                    <li class="nav-item menu-items">
+                        <span class="nav-link">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-certificate"></i>
+                            </span>
+                            <span class="menu-title">Category Manager</span>
                         </span>
-                        <span class="menu-title">Category Manager</span>
-                    </span>
-                    <div id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" asp-controller="category" asp-action="index">Category List</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item menu-items">
-                    <span class="nav-link">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-cellphone-iphone"></i>
+                        <div id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-controller="category" asp-action="index">Category List</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item menu-items">
+                        <span class="nav-link">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-cellphone-iphone"></i>
+                            </span>
+                            <span class="menu-title">Phone Manager</span>
                         </span>
-                        <span class="menu-title">Phone Manager</span>
-                    </span>
-                    <div id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" asp-controller="phone" asp-action="index">Phone List</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item menu-items">
-                    <span class="nav-link">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-windows"></i>
+                        <div id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-controller="phone" asp-action="index">Phone List</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item menu-items">
+                        <span class="nav-link">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-windows"></i>
+                            </span>
+                            <span class="menu-title">Computer Manager</span>
                         </span>
-                        <span class="menu-title">Computer Manager</span>
-                    </span>
-                    <div id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" asp-controller="computer" asp-action="index">Computer List</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item menu-items">
-                    <span class="nav-link">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-watch"></i>
+                        <div id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-controller="computer" asp-action="index">Computer List</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item menu-items">
+                        <span class="nav-link">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-watch"></i>
+                            </span>
+                            <span class="menu-title">Other Product Manager</span>
                         </span>
-                        <span class="menu-title">Other Product Manager</span>
-                    </span>
-                    <div>
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> 
-                                <a class="nav-link" asp-controller="otherproduct" asp-action="index">Other Product List</a>
+                        <div>
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="otherproduct" asp-action="index">Other Product List</a>
                                 </li>
-                        </ul>
-                    </div>
-                </li>
+                            </ul>
+                        </div>
+                    </li>
+                }
             </ul>
         </nav>
         <div class="container-fluid page-body-wrapper">
@@ -208,6 +221,7 @@
                 <div class="content-wrapper">
                     @RenderBody()
                 </div>
+
             </div>
         </div>
     </div>

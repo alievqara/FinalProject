@@ -12,13 +12,16 @@ namespace FinalProject.Controllers
 
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
 
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager,RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
 
 
@@ -63,7 +66,6 @@ namespace FinalProject.Controllers
                 ModelState.AddModelError(string.Empty, "Username or Password is incorrect");
                 return View(model);
             }
-
             return RedirectToAction("index", "dashboard");
 
 

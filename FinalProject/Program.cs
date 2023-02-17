@@ -49,8 +49,8 @@ app.UseAuthorization();
 
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=dashboard}/{action=Index}/{id?}");
+name: "default",
+pattern: "{controller=dashboard}/{action=Index}/{id?}");
 
 
 var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();

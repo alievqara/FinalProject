@@ -1,28 +1,28 @@
-﻿@model Phone
+﻿@model Musteri
 
 @{
-    List<Category> categories = ViewBag.CategoryList;
+
 }
 
 <div class="col-12 grid-margin">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Create New Phone Product</h4>
+            <h4 class="card-title">Credit Sale Product</h4>
             <form method="post" class="form-sample">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Brand_Name" class="col-sm-3 col-form-label">Brend Name</label>
+                            <label asp-for="Name" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Brand_Name" type="text" class="form-control">
+                                <input asp-for="Name"  class="form-control">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Model_Name" class="col-sm-3 col-form-label">Model Name</label>
+                            <label asp-for="Surname" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Model_Name" type="text" class="form-control">
+                                <input asp-for="Surname"  class="form-control">
                             </div>
                         </div>
                     </div>
@@ -30,23 +30,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Detail" class="col-sm-3 col-form-label">Detail Info</label>
+                            <label asp-for="FatherName" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Detail" type="text" class="form-control">
+                                <input asp-for="FatherName"  class="form-control">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="CategoryID" class="col-sm-3 col-form-label">Choose Category</label>
+                            <label asp-for="Tel" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <select asp-for="CategoryID" class="form-control">
-                                    <option value="">Choose Category</option>
-                                    @foreach (Category category in ViewBag.CategoryList)
-                                    {
-                                        <option value="@category.Id">@category.Name</option>
-                                    }
-                                </select>
+                                <input asp-for="Tel"  class="form-control">
                             </div>
                         </div>
                     </div>
@@ -54,17 +48,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Ram" class="col-sm-3 col-form-label">Enter Ram Storage Info</label>
+                            <label asp-for="HomeTel" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Ram" type="text" class="form-control">
+                                <input asp-for="HomeTel"  class="form-control">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Storage" class="col-sm-3 col-form-label">Enter Local Storage Info</label>
+                            <label asp-for="ZaminTel" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Storage" type="text" class="form-control">
+                                <input asp-for="ZaminTel"  class="form-control">
                             </div>
                         </div>
                     </div>
@@ -72,17 +66,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Color" class="col-sm-3 col-form-label">Color</label>
+                            <label asp-for="Is_Yeri" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Color" type="text" class="form-control">
+                                <input asp-for="Is_Yeri"  class="form-control">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Imei" class="col-sm-3 col-form-label">Enter Imei</label>
+                            <label asp-for="Is_Yerinin_Adi" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Imei" type="text" class="form-control">
+                                <input asp-for="Is_Yerinin_Adi"  class="form-control">
                             </div>
                         </div>
                     </div>
@@ -90,17 +84,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Yararsiz" class="col-sm-3 col-form-label">Defective?</label>
+                            <label asp-for="Is_Staji" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Yararsiz" class="form-control">
+                                <input asp-for="Is_Staji"  class="form-control">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Stock_Sale" class="col-sm-3 col-form-label">Stock or Sale</label>
+                            <label asp-for="Kredit_Muddeti" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Stock_Sale" class="form-control">
+                                <input asp-for="Kredit_Muddeti"  class="form-control">
                             </div>
                         </div>
                     </div>
@@ -108,16 +102,34 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label asp-for="Price" class="col-sm-3 col-form-label">Color</label>
+                            <label asp-for="Kredit_Faizi" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <input asp-for="Price" type="text" class="form-control">
+                                <input asp-for="Kredit_Faizi"  class="form-control">
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="OdemeTarixi" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="OdemeTarixi"  class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IlkinOdenis" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="IlkinOdenis" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg font-weight-medium auth-form-btn">Update</button>
-                <a class="btn btn-primary btn-lg font-weight-medium auth-form-btn" asp-action="list" asp-controller="phone">Cancel</a>
+                <button type="submit" class="btn btn-primary btn-lg font-weight-medium auth-form-btn">Sale</button>
+                <a class="btn btn-primary btn-lg font-weight-medium auth-form-btn" asp-action="addproductsale">Back</a>
             </form>
         </div>
     </div>

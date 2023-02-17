@@ -30,13 +30,8 @@
                                     <th scope="row">@(counter++)</th>
                                     <td>@product.Brand_Name @product.Model_Name  @product.Price Azn</td>
                                     <td>
-                                        <a class="btn btn-sm btn-outline-warning" asp-controller="product" asp-action="detail" asp-route-id="@product.Id">Detail</a>
-                                        @if (User.IsInRole("Anbardar") || User.IsInRole("SuperUser"))
-                                        {
-                                            <a class="btn btn-sm btn-outline-warning" asp-action="Update" asp-route-id="@product.Id">Update</a>
-                                            <a class="btn btn-sm btn-outline-primary" asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                                        <a class="btn btn-sm btn-outline-warning" asp-controller="product" asp-action="detail" asp-route-id="@product.Id">Detail</a>+
 
-                                        }
                                     </td>
                                 </tr>
                             }

@@ -84,6 +84,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmVcdXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Lessons/FinalProject/FinalProject/Views/Product/DetaillComp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxsQ29tcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Lessons/FinalProject/FinalProject/Views/Product/DetailOther.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxPdGhlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Lessons/FinalProject/FinalProject/Views/Product/DetailPhone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxQaG9uZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Lessons/FinalProject/FinalProject/Views/Product/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -104,8 +116,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZUJhc2tldFxhZGRwcm9kdWN0c2FsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Lessons/FinalProject/FinalProject/Views/SaleBasket/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZUJhc2tldFxJbmRleC5jc2h0bWw=
+[D:/Lessons/FinalProject/FinalProject/Views/SaleBasket/allsalelist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZUJhc2tldFxhbGxzYWxlbGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Lessons/FinalProject/FinalProject/Views/SaleBasket/cashsale.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZUJhc2tldFxjYXNoc2FsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Lessons/FinalProject/FinalProject/Views/SaleBasket/creditsale.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZUJhc2tldFxjcmVkaXRzYWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Lessons/FinalProject/FinalProject/Views/SaleBasket/mysalelistday.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZUJhc2tldFxteXNhbGVsaXN0ZGF5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Lessons/FinalProject/FinalProject/Views/SaleBasket/mysalelistmount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZUJhc2tldFxteXNhbGVsaXN0bW91bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Lessons/FinalProject/FinalProject/Views/SaleBasket/sale.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZUJhc2tldFxzYWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Lessons/FinalProject/FinalProject/Views/SaleBasket/salelistmounth.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZUJhc2tldFxzYWxlbGlzdG1vdW50aC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Lessons/FinalProject/FinalProject/Views/Shared/_SearchPartial.cshtml]

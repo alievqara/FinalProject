@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Net;
 using ViewModels.Account;
 
 namespace FinalProject.Controllers
@@ -119,7 +120,7 @@ namespace FinalProject.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> ChangePassword(ChangePass pass,string id)
+        public async Task<IActionResult> ChangePassword(ChangePass pass, string id)
         {
 
             ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -142,6 +143,27 @@ namespace FinalProject.Controllers
             }
             return View(pass);
         }
+
+        public async Task<ActionResult> Delete(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var user = await _appDBC.Users.FindAsync(id);
+
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+
+            _appDBC.Users.Remove(user);
+            await _appDBC.SaveChangesAsync();
+            return RedirectToAction("userlist");
+        
+        }
+
 
 
 

@@ -22,8 +22,7 @@
                             <td>@item.UserName</td>
                             <td>@item.Email</td>
                             <td>
-                                <label class="badge badge-danger">Update User</label>
-                                <label class="badge badge-danger">Delete User</label>
+                                <a class="badge badge-danger" asp-action="delete" asp-asp-controller="user" asp-route-id="@item.Id">Delete User</a>
                             </td>
                         </tr>
                     }
